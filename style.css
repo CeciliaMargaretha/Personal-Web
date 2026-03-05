@@ -1,0 +1,117 @@
+body{
+background:#0B1F3A;
+color:white;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+.gradient-text{
+background:linear-gradient(90deg,#2563EB,#7C3AED,#EC4899);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.btn-pink{
+background:#EC4899;
+color:white;
+border:none;
+transition:0.3s;
+}
+
+.btn-pink:hover{
+background:#7C3AED;
+transform:scale(1.05);
+}
+
+/* Navbar Imut Pink */
+.glass-navbar{
+background:rgba(236,72,153,0.2);
+backdrop-filter:blur(10px);
+animation:navbarGlow 3s infinite alternate;
+}
+
+@keyframes navbarGlow{
+from{box-shadow:0 0 10px #EC4899;}
+to{box-shadow:0 0 25px #7C3AED;}
+}
+
+/* Floating */
+.floating-shapes::before{
+content:"";
+position:absolute;
+width:300px;
+height:300px;
+background:radial-gradient(circle,#7C3AED,#EC4899);
+filter:blur(120px);
+animation:float 6s infinite alternate;
+}
+
+@keyframes float{
+from{transform:translateY(-20px);}
+to{transform:translateY(20px);}
+}
+
+/* Profile */
+.profile-img{
+width:150px;
+border-radius:50%;
+box-shadow:0 0 20px #EC4899;
+}
+
+/* Glass Card */
+.glass-card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+border-radius:20px;
+}
+
+/* Hobi */
+.gradient-bg{
+background:linear-gradient(135deg,#1E3A8A,#7C3AED);
+}
+
+.hobi-card{
+padding:40px;
+border-radius:20px;
+background:rgba(255,255,255,0.1);
+transition:0.4s;
+}
+
+.hobi-card:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px #EC4899;
+}
+
+/* Portfolio */
+.portfolio-card img{
+transition:0.4s;
+}
+
+.portfolio-card:hover img{
+transform:scale(1.1);
+}
+
+/* Cute Animals 3D */
+.animal-container{
+display:flex;
+justify-content:center;
+gap:40px;
+font-size:4rem;
+}
+
+.animal{
+transition:0.5s;
+cursor:pointer;
+}
+
+.animal:hover{
+transform:rotateY(360deg) scale(1.3);
+text-shadow:0 0 20px #EC4899;
+}
+.icon-animal {
+  transition: 0.5s;
+}
+.icon-animal:hover {
+  transform: scale(1.2) rotate(20deg);
+  filter: drop-shadow(0 0 20px #EC4899);
+}
