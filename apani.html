@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0B1F3A;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* ================= NAVBAR ================= */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      padding: 20px 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      background: rgba(11, 31, 58, 0.6);
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #EC4899;
+    }
+
+    /* ================= HERO ================= */
+    #home {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero-content span {
+      color: #EC4899;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      min-height: 30px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #2563EB, #7C3AED, #EC4899);
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #EC4899;
+    }
+
+    /* Floating Blobs */
+    .blob {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, #7C3AED, transparent);
+      border-radius: 50%;
+      filter: blur(100px);
+      animation: float 8s infinite alternate;
+    }
+
+    .blob:nth-child(1) { top: 10%; left: 10%; }
+    .blob:nth-child(2) { bottom: 10%; right: 10%; }
+
+    @keyframes float {
+      from { transform: translateY(-20px); }
+      to { transform: translateY(20px); }
+    }
+
+    /* ================= SECTION ================= */
+    section {
+      padding: 100px 10%;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s;
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+
+    /* ================= BIODATA ================= */
+    .card {
+      background: rgba(30, 58, 138, 0.2);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(124, 58, 237, 0.3);
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #7C3AED;
+      margin-bottom: 20px;
+    }
+
+    /* ================= GRID ================= */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .grid-card {
+      padding: 25px;
+      background: rgba(124, 58, 237, 0.2);
+      border-radius: 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .grid-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #EC4899;
+    }
+
+    /* ================= PORTOFOLIO ================= */
+    .portfolio-card img {
+      width: 100%;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .portfolio-card img:hover {
+      transform: scale(1.1);
+    }
+
+    /* ================= CONTACT ================= */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.3);
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<nav>
+  <h3>MyPortfolio</h3>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#biodata">Biodata</a></li>
+    <li><a href="#hobi">Hobi</a></li>
+    <li><a href="#portofolio">Portofolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="blob"></div>
+  <div class="blob"></div>
+
+  <div class="hero-content">
+    <h1>Halo, Saya <span>Cils</span></h1>
+    <p id="typing"></p>
+    <button class="btn" onclick="scrollToSection('portofolio')">Lihat Portofolio</button>
+  </div>
+</section>
+
+<!-- BIODATA -->
+<section id="biodata">
+  <h2>Biodata</h2>
+  <div class="card">
+    <img src="https://via.placeholder.com/150" class="profile-img">
+    <p>Nama: Cils</p>
+    <p>Tempat, Tanggal Lahir: Jakarta, 1 Januari 2000</p>
+    <p>Pendidikan: S1 Informatika</p>
+    <p>Universitas: Universitas Impian</p>
+    <p>Keahlian: HTML, CSS, JavaScript</p>
+  </div>
+</section>
+
+<!-- HOBI -->
+<section id="hobi">
+  <h2>Hobi</h2>
+  <div class="grid">
+    <div class="grid-card"><i class="fas fa-code fa-2x"></i><h3>Coding</h3><p>Membangun website modern.</p></div>
+    <div class="grid-card"><i class="fas fa-paint-brush fa-2x"></i><h3>Design</h3><p>Mendesain UI yang menarik.</p></div>
+    <div class="grid-card"><i class="fas fa-music fa-2x"></i><h3>Musik</h3><p>Mendengarkan musik santai.</p></div>
+  </div>
+</section>
+
+<!-- PORTOFOLIO -->
+<section id="portofolio">
+  <h2>Portofolio</h2>
+  <div class="grid">
+    <div class="portfolio-card grid-card">
+      <img src="https://via.placeholder.com/300x200">
+      <h3>Project 1</h3>
+      <p>Website Company Profile</p>
+    </div>
+    <div class="portfolio-card grid-card">
+      <img src="https://via.placeholder.com/300x200">
+      <h3>Project 2</h3>
+      <p>Landing Page Modern</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <form>
+    <input type="text" placeholder="Nama" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="4" placeholder="Pesan"></textarea>
+    <button class="btn">Kirim</button>
+  </form>
+</section>
+
+<footer>
+  © 2025 Cils. All Rights Reserved.
+</footer>
+
+<script>
+  // ================= TYPING EFFECT =================
+  const text = ["Mahasiswa", "Web Developer", "UI Designer"];
+  let count = 0;
+  let index = 0;
+  let currentText = "";
+  let letter = "";
+
+  function type() {
+    if (count === text.length) {
+      count = 0;
+    }
+    currentText = text[count];
+    letter = currentText.slice(0, ++index);
+
+    document.getElementById("typing").textContent = letter;
+    if (letter.length === currentText.length) {
+      setTimeout(() => {
+        index = 0;
+        count++;
+      }, 1000);
+    }
+    setTimeout(type, 100);
+  }
+
+  type();
+
+  // ================= SCROLL TO SECTION =================
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+  }
+
+  // ================= SCROLL ANIMATION =================
+  const sections = document.querySelectorAll("section");
+
+  window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+      const top = sec.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        sec.classList.add("show");
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
